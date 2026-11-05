@@ -784,3 +784,15 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #C62371;
 }
+
+/* HARELINE STUDIO — Custom Text Selection */
+
+::selection {
+    background: #C62371;
+    color: #FFFFFF;
+}
+
+::-moz-selection {
+    background: #C62371;
+    color: #FFFFFF;
+}
