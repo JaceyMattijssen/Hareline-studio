@@ -10,7 +10,6 @@
     --script-font: "didactica-cursive", sans-serif;
 }
 
-
 /* General */
 
 * {
@@ -59,7 +58,6 @@ p {
     background: var(--pink);
 }
 
-
 /* Wave Dividers */
 
 .wave-divider {
@@ -83,7 +81,6 @@ p {
 .wave-cream-to-dark {
     background: var(--dark);
 }
-
 
 /* Navigation */
 
@@ -121,7 +118,6 @@ p {
 .navbar nav a:hover {
     opacity: 0.6;
 }
-
 
 /* Hero */
 
@@ -184,7 +180,6 @@ p {
     color: var(--dark);
 }
 
-
 /* Section Headings */
 
 .section-heading {
@@ -206,7 +201,6 @@ p {
     font-family: var(--light-font);
     font-size: 1.1rem;
 }
-
 
 /* Selected Work */
 
@@ -340,7 +334,6 @@ p {
     margin-top: 10px;
 }
 
-
 /* Skills */
 
 .skills {
@@ -460,7 +453,6 @@ p {
     color: var(--cream);
 }
 
-
 /* About */
 
 .about {
@@ -507,7 +499,6 @@ p {
     margin-bottom: 25px;
     color: var(--dark);
 }
-
 
 /* Contact */
 
@@ -559,7 +550,6 @@ p {
 .contact-details a:hover {
     text-decoration: underline;
 }
-
 
 /* Footer */
 
@@ -620,7 +610,6 @@ p {
         gap: 10px;
     }
 }
-
 
 /* Mobile */
 
@@ -737,7 +726,6 @@ p {
     }
 }
 
-
 /* Small Mobile */
 
 @media (max-width: 420px) {
@@ -767,6 +755,7 @@ html {
 }
 
 /* Edge / Chrome */
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -801,13 +790,16 @@ html {
 
 @media (hover: hover) and (pointer: fine) {
 
-    body {
-        cursor: none;
-    }
-
-    a, button, summary, input, select, textarea, label,
-    [role="button"] {
-        cursor: none;
+    body,
+    body a,
+    body button,
+    body summary,
+    body input,
+    body select,
+    body textarea,
+    body label,
+    body [role="button"] {
+        cursor: none !important;
     }
 
     .custom-cursor {
@@ -827,13 +819,12 @@ html {
         z-index: 99999;
 
         transform: translate(-50%, -50%);
-
         opacity: 0;
 
         transition:
             width 0.2s ease,
             height 0.2s ease,
-            border-radius 0.2s ease,
+            border-color 0.25s ease,
             opacity 0.2s ease;
     }
 
@@ -841,7 +832,7 @@ html {
         opacity: 1;
     }
 
-    /* Triangle on interactive elements */
+    /* Triangle over interactive elements */
 
     .custom-cursor.interactive {
         width: 18px;
@@ -851,7 +842,6 @@ html {
         border-radius: 0;
 
         background: currentColor;
-
         color: #FFFFFF;
 
         clip-path: polygon(
@@ -860,5 +850,4 @@ html {
             100% 100%
         );
     }
-
 }
