@@ -805,8 +805,9 @@ html {
         cursor: none;
     }
 
-    a, button, summary {
-        cursor: pointer;
+    a, button, summary, input, select, textarea, label,
+    [role="button"] {
+        cursor: none;
     }
 
     .custom-cursor {
@@ -830,57 +831,28 @@ html {
         opacity: 0;
 
         transition:
-            border-color 0.25s ease,
+            width 0.2s ease,
+            height 0.2s ease,
+            border-radius 0.2s ease,
             opacity 0.2s ease;
-
     }
 
     .custom-cursor.visible {
         opacity: 1;
     }
 
-    .custom-cursor.hidden {
-        opacity: 0;
-    }
+    /* Triangle on interactive elements */
 
-}
-
-/* HARELINE STUDIO — Click Triangle */
-
-@media (hover: hover) and (pointer: fine) {
-
-    .custom-cursor.clicked {
+    .custom-cursor.interactive {
         width: 18px;
         height: 18px;
 
         border: none;
         border-radius: 0;
 
-        background: transparent;
-    }
-
-    .custom-cursor.clicked::before {
-        content: "";
-
-        position: absolute;
-        inset: 0;
-
         background: currentColor;
 
-        clip-path: polygon(
-            50% 0%,
-            0% 100%,
-            100% 100%
-        );
-    }
-
-    .custom-cursor.clicked::after {
-        content: "";
-
-        position: absolute;
-        inset: 2px;
-
-        background: var(--pink);
+        color: #FFFFFF;
 
         clip-path: polygon(
             50% 0%,

@@ -4,10 +4,9 @@ const cursor = document.createElement("div");
 cursor.classList.add("custom-cursor");
 document.body.appendChild(cursor);
 
-// Only activate on devices with a mouse or trackpad
 if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
-    // Update cursor position
+    // Track mouse movement
     document.addEventListener("mousemove", (event) => {
 
         cursor.style.left = `${event.clientX}px`;
@@ -18,7 +17,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         updateCursorColour(event.target);
     });
 
-    // Change cursor colour depending on the section
+    // Change cursor colour depending on background
     function updateCursorColour(element) {
 
         const section = element.closest(
@@ -44,24 +43,15 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         }
     }
 
-    // Hide custom cursor over interactive elements
+    // Switch to triangle over interactive elements
     document.addEventListener("mouseover", (event) => {
 
-        if (event.target.closest("a, button, summary")) {
-            cursor.classList.add("hidden");
-        } else {
-            cursor.classList.remove("hidden");
-        }
+        const interactive = event.target.closest(
+            "a, button, summary, input, select, textarea, label, [role='button']"
+        );
 
-    });
+        cursor.classList.toggle("interactive", !!interactive);
 
-    // Change circle into triangle while clicking
-    document.addEventListener("mousedown", () => {
-        cursor.classList.add("clicked");
-    });
-
-    document.addEventListener("mouseup", () => {
-        cursor.classList.remove("clicked");
     });
 
     // Hide cursor when leaving the page
@@ -74,5 +64,7 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     });
 
 } else {
+
     cursor.remove();
+
 }
