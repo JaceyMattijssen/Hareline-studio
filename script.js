@@ -18,30 +18,36 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     });
 
     // Change cursor colour depending on background
-    function updateCursorColour(element) {
+function updateCursorColour(element) {
 
-        const section = element.closest(
-            ".section-pink, .section-cream, .hero, .navbar, .footer"
-        );
+    const section = element.closest(
+        ".section-pink, .section-cream, .hero, .navbar, .footer"
+    );
 
-        if (!section) return;
+    if (!section) return;
 
-        if (
-            section.classList.contains("section-pink") ||
-            section.classList.contains("hero") ||
-            section.classList.contains("navbar")
-        ) {
-            cursor.style.borderColor = "#FFFFFF";
-        }
+    let cursorColour = "#FFFFFF";
 
-        else if (section.classList.contains("section-cream")) {
-            cursor.style.borderColor = "#3D3B30";
-        }
-
-        else if (section.classList.contains("footer")) {
-            cursor.style.borderColor = "#C62371";
-        }
+    if (
+        section.classList.contains("section-pink") ||
+        section.classList.contains("hero") ||
+        section.classList.contains("navbar")
+    ) {
+        cursorColour = "#FFFFFF";
     }
+
+    else if (section.classList.contains("section-cream")) {
+        cursorColour = "#3D3B30";
+    }
+
+    else if (section.classList.contains("footer")) {
+        cursorColour = "#C62371";
+    }
+
+    // Apply the same colour to both cursor shapes
+    cursor.style.borderColor = cursorColour;
+    cursor.style.color = cursorColour;
+}
 
     // Switch to triangle over interactive elements
     document.addEventListener("mouseover", (event) => {
