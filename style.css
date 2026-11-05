@@ -591,34 +591,6 @@ p {
     text-align: right;
 }
 
-/* Custom scrollbar */
-
-/* Chrome, Edge, Safari */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #ECE6D9;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #3D3B30;
-    border-radius: 10px;
-    border: 2px solid #ECE6D9;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #C62371;
-}
-
-/* Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: #3D3B30 #ECE6D9;
-}
-
-
 /* Tablet */
 
 @media (max-width: 900px) {
@@ -785,4 +757,30 @@ p {
     .project-card {
         flex-basis: 90%;
     }
+}
+
+/* HARELINE STUDIO — Custom Scrollbar */
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3D3B30 #ECE6D9;
+}
+
+/* Edge / Chrome */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ECE6D9;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3D3B30;
+    border: 3px solid #ECE6D9;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #C62371;
 }
