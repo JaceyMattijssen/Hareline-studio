@@ -796,3 +796,51 @@ html {
     background: #C62371;
     color: #FFFFFF;
 }
+
+/* HARELINE STUDIO — Custom Cursor */
+
+@media (hover: hover) and (pointer: fine) {
+
+    body {
+        cursor: none;
+    }
+
+    a, button, summary {
+        cursor: pointer;
+    }
+
+    .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 16px;
+        height: 16px;
+
+        border: 2px solid #FFFFFF;
+        border-radius: 50%;
+
+        background: transparent;
+
+        pointer-events: none;
+        z-index: 99999;
+
+        transform: translate(-50%, -50%);
+
+        opacity: 0;
+
+        transition:
+            border-color 0.25s ease,
+            opacity 0.2s ease;
+
+    }
+
+    .custom-cursor.visible {
+        opacity: 1;
+    }
+
+    .custom-cursor.hidden {
+        opacity: 0;
+    }
+
+}
