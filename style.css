@@ -844,3 +844,49 @@ html {
     }
 
 }
+
+/* HARELINE STUDIO — Click Triangle */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .custom-cursor.clicked {
+        width: 18px;
+        height: 18px;
+
+        border: none;
+        border-radius: 0;
+
+        background: transparent;
+    }
+
+    .custom-cursor.clicked::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background: currentColor;
+
+        clip-path: polygon(
+            50% 0%,
+            0% 100%,
+            100% 100%
+        );
+    }
+
+    .custom-cursor.clicked::after {
+        content: "";
+
+        position: absolute;
+        inset: 2px;
+
+        background: var(--pink);
+
+        clip-path: polygon(
+            50% 0%,
+            0% 100%,
+            100% 100%
+        );
+    }
+
+}

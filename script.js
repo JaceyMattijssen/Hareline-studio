@@ -7,15 +7,11 @@ document.body.appendChild(cursor);
 // Only activate on devices with a mouse or trackpad
 if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
-    let mouseX = 0;
-    let mouseY = 0;
-
+    // Update cursor position
     document.addEventListener("mousemove", (event) => {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
 
-        cursor.style.left = `${mouseX}px`;
-        cursor.style.top = `${mouseY}px`;
+        cursor.style.left = `${event.clientX}px`;
+        cursor.style.top = `${event.clientY}px`;
 
         cursor.classList.add("visible");
 
@@ -57,6 +53,15 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
             cursor.classList.remove("hidden");
         }
 
+    });
+
+    // Change circle into triangle while clicking
+    document.addEventListener("mousedown", () => {
+        cursor.classList.add("clicked");
+    });
+
+    document.addEventListener("mouseup", () => {
+        cursor.classList.remove("clicked");
     });
 
     // Hide cursor when leaving the page
