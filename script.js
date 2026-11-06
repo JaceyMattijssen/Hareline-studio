@@ -6,6 +6,29 @@ document.body.appendChild(cursor);
 
 if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
 
+    // Update cursor colour based on the section underneath it
+    function updateCursorColour(element) {
+
+        const section = element.closest(
+            ".section-pink, .section-cream, .hero, .navbar, .footer"
+        );
+
+        if (!section) return;
+
+        let cursorColour = "#FFFFFF";
+
+        if (section.classList.contains("section-cream")) {
+            cursorColour = "#3D3B30";
+        }
+
+        else if (section.classList.contains("footer")) {
+            cursorColour = "#C62371";
+        }
+
+        cursor.style.setProperty("--cursor-colour", cursorColour);
+    }
+
+
     // Track mouse movement
     document.addEventListener("mousemove", (event) => {
 
@@ -17,37 +40,6 @@ if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         updateCursorColour(event.target);
     });
 
-    // Change cursor colour depending on background
-function updateCursorColour(element) {
-
-    const section = element.closest(
-        ".section-pink, .section-cream, .hero, .navbar, .footer"
-    );
-
-    if (!section) return;
-
-    let cursorColour = "#FFFFFF";
-
-    if (
-        section.classList.contains("section-pink") ||
-        section.classList.contains("hero") ||
-        section.classList.contains("navbar")
-    ) {
-        cursorColour = "#FFFFFF";
-    }
-
-    else if (section.classList.contains("section-cream")) {
-        cursorColour = "#3D3B30";
-    }
-
-    else if (section.classList.contains("footer")) {
-        cursorColour = "#C62371";
-    }
-
-    // Apply the same colour to both cursor shapes
-    cursor.style.borderColor = cursorColour;
-    cursor.style.color = cursorColour;
-}
 
     // Switch to triangle over interactive elements
     document.addEventListener("mouseover", (event) => {
@@ -56,9 +48,11 @@ function updateCursorColour(element) {
             "a, button, summary, input, select, textarea, label, [role='button']"
         );
 
-        cursor.classList.toggle("interactive", !!interactive);
+        cursor.classList.toggle("interactive", Boolean(interactive));
 
+        updateCursorColour(event.target);
     });
+
 
     // Hide cursor when leaving the page
     document.addEventListener("mouseleave", () => {
